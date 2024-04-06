@@ -6,6 +6,7 @@
         "stdint.h": "c",
         "banking.h": "c",
         "your-game-here.h": "c",
-        "show-splash-screen1.h": "c"
+        "show-splash-screen1.h": "c",
+        "show-splash-screen2.h": "c"
     }
 }

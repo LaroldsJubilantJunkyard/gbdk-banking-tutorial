@@ -11,7 +11,7 @@
 #define tutorial_TILE_H 8
 #define tutorial_WIDTH 160
 #define tutorial_HEIGHT 144
-#define tutorial_TILE_COUNT 42
+#define tutorial_TILE_COUNT 53
 #define tutorial_PALETTE_COUNT 1
 #define tutorial_COLORS_PER_PALETTE 4
 #define tutorial_TOTAL_COLORS 4
@@ -20,7 +20,7 @@
 BANKREF_EXTERN(tutorial)
 
 extern const palette_color_t tutorial_palettes[4];
-extern const uint8_t tutorial_tiles[672];
+extern const uint8_t tutorial_tiles[848];
 
 extern const unsigned char tutorial_map[360];
 #define tutorial_map_attributes tutorial_map

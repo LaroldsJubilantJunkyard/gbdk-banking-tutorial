@@ -11,7 +11,7 @@
 #define gbdk_splash_screen_TILE_H 8
 #define gbdk_splash_screen_WIDTH 160
 #define gbdk_splash_screen_HEIGHT 144
-#define gbdk_splash_screen_TILE_COUNT 53
+#define gbdk_splash_screen_TILE_COUNT 57
 #define gbdk_splash_screen_PALETTE_COUNT 1
 #define gbdk_splash_screen_COLORS_PER_PALETTE 4
 #define gbdk_splash_screen_TOTAL_COLORS 4
@@ -20,7 +20,7 @@
 BANKREF_EXTERN(gbdk_splash_screen)
 
 extern const palette_color_t gbdk_splash_screen_palettes[4];
-extern const uint8_t gbdk_splash_screen_tiles[848];
+extern const uint8_t gbdk_splash_screen_tiles[912];
 
 extern const unsigned char gbdk_splash_screen_map[360];
 #define gbdk_splash_screen_map_attributes gbdk_splash_screen_map

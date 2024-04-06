@@ -11,7 +11,7 @@
 #define banking_TILE_H 8
 #define banking_WIDTH 160
 #define banking_HEIGHT 144
-#define banking_TILE_COUNT 48
+#define banking_TILE_COUNT 53
 #define banking_PALETTE_COUNT 1
 #define banking_COLORS_PER_PALETTE 4
 #define banking_TOTAL_COLORS 4
@@ -20,7 +20,7 @@
 BANKREF_EXTERN(banking)
 
 extern const palette_color_t banking_palettes[4];
-extern const uint8_t banking_tiles[768];
+extern const uint8_t banking_tiles[848];
 
 extern const unsigned char banking_map[360];
 #define banking_map_attributes banking_map

@@ -2,12 +2,13 @@
 #include <stdint.h>
 
 // Miccealenous data
+// For teaching purposes, we've added a bunch of extra data to fill up the ROM file
 #include "big-data-file1.h"
 #include "big-data-file2.h"
 
 // Extra Functions
 #include "show-splash-screen1.h"
-#include "show-splash-screen2.h"
+#include "show-your-game-here.h"
 
 // Our assets
 #include "tutorial.h"
@@ -34,16 +35,16 @@ void main(void)
     SWITCH_ROM(1);
 
     set_bkg_data(0,banking_TILE_COUNT,banking_tiles);
-    VBK_REG=0;
     set_bkg_tiles(0,0,20,18,banking_map);
-    VBK_REG=1;
-    set_bkg_tiles(0,0,20,18,banking_map_attributes);
 
 
     // Wait for A button press
     WaitForAButtonPress();
 
     // This function is non banked
+    // It will switch banks (to bank 2) before showing the gbdk splash screen
+    // It should restore the initial bank (bank 1) after it's done
+    // if it dosn't, our 'tutorial' screen afterwards will fail.
     ShowGBDKSplashScreeen1();
 
     // Wait for A button press
@@ -54,15 +55,13 @@ void main(void)
     // We previously set the bank to 1, if the 'ShowGBDKSplashScreen' properly restores the active bank
     // then this will work fine.
     set_bkg_data(0,tutorial_TILE_COUNT,tutorial_tiles);
-    VBK_REG=0;
     set_bkg_tiles(0,0,20,18,tutorial_map);
-    VBK_REG=1;
-    set_bkg_tiles(0,0,20,18,tutorial_map_attributes);
 
     // Wait for A button press
     WaitForAButtonPress();
 
     // This function lies in bank 2
+    // GBDK will automatically switch to bank 2 when calling this function
     ShowYourGameHere();
 
     // Loop forever
