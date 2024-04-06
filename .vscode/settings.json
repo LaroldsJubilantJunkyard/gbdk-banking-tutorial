@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "gbdk-splash-screen.h": "c",
+        "big-data-file.h": "c",
+        "big-data-file1.h": "c",
+        "stdint.h": "c",
+        "banking.h": "c"
+    }
+}
