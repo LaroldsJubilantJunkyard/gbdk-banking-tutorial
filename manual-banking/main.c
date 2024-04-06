@@ -1,30 +1,18 @@
 #include <gb/gb.h>
 #include <stdint.h>
-#include "tutorial.h"
-#include "banking.h"
-#include "gbdk-splash-screen.h"
+
+// Miccealenous data
 #include "big-data-file1.h"
 #include "big-data-file2.h"
 
+// Extra Functions
+#include "show-splash-screen1.h"
+#include "show-splash-screen2.h"
 
-
-void ShowGBDKSplashScreeen() NONBANKED{
-
-    uint8_t _previous_bank = CURRENT_BANK;
-
-
-    SWITCH_ROM(2);
-
-    // We want to show our splash screen
-    set_bkg_data(0,gbdk_splash_screen_TILE_COUNT,gbdk_splash_screen_tiles);
-    VBK_REG=0;
-    set_bkg_tiles(0,0,20,18,gbdk_splash_screen_map);
-    VBK_REG=1;
-    set_bkg_tiles(0,0,20,18,gbdk_splash_screen_map_attributes);
-
-    //SWITCH_ROM(_previous_bank);
-
-}
+// Our assets
+#include "tutorial.h"
+#include "banking.h"
+#include "gbdk-splash-screen.h"
 
 void WaitForAButtonPress(){
     
@@ -55,7 +43,8 @@ void main(void)
     // Wait for A button press
     WaitForAButtonPress();
 
-    ShowGBDKSplashScreeen();
+    // This function is non banked
+    ShowGBDKSplashScreeen1();
 
     // Wait for A button press
     WaitForAButtonPress();
@@ -69,6 +58,12 @@ void main(void)
     set_bkg_tiles(0,0,20,18,tutorial_map);
     VBK_REG=1;
     set_bkg_tiles(0,0,20,18,tutorial_map_attributes);
+
+    // Wait for A button press
+    WaitForAButtonPress();
+
+    // This function lies in bank 2
+    ShowYourGameHere();
 
     // Loop forever
     while(bigData1[1] && bigData2[1]) {

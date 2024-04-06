@@ -4,6 +4,8 @@
         "big-data-file.h": "c",
         "big-data-file1.h": "c",
         "stdint.h": "c",
-        "banking.h": "c"
+        "banking.h": "c",
+        "your-game-here.h": "c",
+        "show-splash-screen1.h": "c"
     }
 }

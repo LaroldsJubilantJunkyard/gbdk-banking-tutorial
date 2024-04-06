@@ -45,8 +45,8 @@ big-data-file1.o: big-data-file1.c
 # big-data-file2 's bank is defined inside of it
 # MBC5+ROM+RAM : -Wl-yt0x19
 #  4 ROM banks  : -Wl-yo4
-$(BINS): gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o
-	$(LCC) $(LCCFLAGS) -Wl-yt0x1A -Wl-yo8  -o $@ main.c big-data-file2.c gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o
+$(BINS): gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o your-game-here.c
+	$(LCC) $(LCCFLAGS) -Wl-yt0x1A -Wl-yo8  -o $@ main.c show-splash-screen1.c show-splash-screen2.c big-data-file2.c gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o your-game-here.c
 
 clean:
 	rm -f *.o *.lst *.map *.gb *.ihx *.sym *.cdb *.adb *.asm *.noi *.rst
