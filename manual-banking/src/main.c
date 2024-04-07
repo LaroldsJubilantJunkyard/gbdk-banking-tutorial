@@ -7,8 +7,8 @@
 #include "big-data-file2.h"
 
 // Extra Functions
-#include "show-splash-screen1.h"
-#include "show-your-game-here.h"
+#include "nonbanked-function.h"
+#include "banked-function.h"
 
 // Our assets
 #include "tutorial.h"
@@ -69,6 +69,7 @@ void main(void)
 
 
 		// Game main loop processing goes here
+        SCX_REG= SCX_REG+1;
 
 
 		// Done processing, yield CPU and wait for start of next frame

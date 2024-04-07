@@ -17,6 +17,6 @@ void ShowGBDKSplashScreeen1() NONBANKED{
     set_bkg_data(0,gbdk_splash_screen_TILE_COUNT,gbdk_splash_screen_tiles);
     set_bkg_tiles(0,0,20,18,gbdk_splash_screen_map);
 
-    //SWITCH_ROM(_previous_bank);
+    SWITCH_ROM(_previous_bank);
 
 }

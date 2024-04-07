@@ -2,6 +2,6 @@
 #define BIG_DATA_FILE
 #include <gb/gb.h>
 
-extern const uint16_t bigData1[12080];
+extern const uint8_t bigData1[3680];
 
 #endif

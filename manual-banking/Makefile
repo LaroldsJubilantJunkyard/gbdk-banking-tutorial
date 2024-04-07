@@ -9,6 +9,7 @@ ifndef GBDK_HOME
 endif
 
 LCC = $(GBDK_HOME)bin/lcc 
+LCCFLAGS = -Iheaders
 
 # GBDK_DEBUG = ON
 ifdef GBDK_DEBUG
@@ -20,34 +21,23 @@ endif
 PROJECTNAME    = BankingTutorial-ManualBanking
 
 BINS	    = $(PROJECTNAME).gb
-CSOURCES   := $(wildcard *.c)
-ASMSOURCES := $(wildcard *.s)
+CSOURCES   := $(wildcard src/*.c)
 
-all:	$(BINS)
+all:	prepare $(BINS)
+
+prepare:
+	mkdir -p bin
 
 compile.bat: Makefile
 	@echo "REM Automatically generated from Makefile" > compile.bat
 	@make -sn | sed y/\\//\\\\/ | sed s/mkdir\ \-p/mkdir/ | grep -v make >> compile.bat
 
-tutorial.o: tutorial.c
-	$(LCC) $(LCCFLAGS)  -Wf-bo1 -c -o  tutorial.o tutorial.c
-
-banking.o: banking.c
-	$(LCC) $(LCCFLAGS)  -Wf-bo1 -c -o  banking.o banking.c
-
-gbdk-splash-screen.o: gbdk-splash-screen.c
-	$(LCC) $(LCCFLAGS)  -Wf-bo2 -c -o  gbdk-splash-screen.o gbdk-splash-screen.c
-
-big-data-file1.o: big-data-file1.c
-	$(LCC) $(LCCFLAGS)  -Wf-bo3 -c -o  big-data-file1.o big-data-file1.c
-
 # Compile and link all source files in a single call to LCC
-# big-data-file2 's bank is defined inside of it
 # MBC5+ROM+RAM : -Wl-yt0x19
-#  4 ROM banks  : -Wl-yo4
-$(BINS): gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o your-game-here.c
-	$(LCC) $(LCCFLAGS) -Wl-yt0x1A -Wl-yo8  -o $@ main.c show-splash-screen1.c show-your-game-here.c big-data-file2.c gbdk-splash-screen.o big-data-file1.o banking.o tutorial.o your-game-here.c
-
+#  8 ROM banks  : -Wl-yo8
+$(BINS): $(CSOURCES)
+	$(LCC) $(LCCFLAGS) -Wl-yt0x1A -Wl-yo8  -o $@ $(CSOURCES)
 clean:
 	rm -f *.o *.lst *.map *.gb *.ihx *.sym *.cdb *.adb *.asm *.noi *.rst
+	rm -f  bin/*.*
 
