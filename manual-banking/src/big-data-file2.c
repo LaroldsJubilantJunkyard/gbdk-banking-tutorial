@@ -1,5 +1,10 @@
 #include <gb/gb.h>
 
+/**
+ * @brief This is just placeholder data to help fill up the ROM file. 
+ * Big data file 1 & 2 are too big for a normal ROM file. 
+ * Without usage of banking, we'll get errors about ROM size. * 
+ */
 const uint8_t bigData2[] = {
     0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,
     0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,

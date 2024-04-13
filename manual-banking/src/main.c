@@ -1,18 +1,13 @@
 #include <gb/gb.h>
 #include <stdint.h>
 
-// Miccealenous data
-// For teaching purposes, we've added a bunch of extra data to fill up the ROM file
-#include "big-data-file1.h"
-#include "big-data-file2.h"
-
 // Extra Functions
 #include "nonbanked-function.h"
 #include "banked-function.h"
 
 // Our assets
-#include "tutorial.h"
-#include "banking.h"
+#include "tutorial-screen.h"
+#include "banking-screen.h"
 #include "gbdk-splash-screen.h"
 
 void WaitForAButtonPress(){
@@ -34,8 +29,8 @@ void main(void)
     // Switch to bank 1 so we can access it's data
     SWITCH_ROM(1);
 
-    set_bkg_data(0,banking_TILE_COUNT,banking_tiles);
-    set_bkg_tiles(0,0,20,18,banking_map);
+    set_bkg_data(0,banking_screen_TILE_COUNT,banking_screen_tiles);
+    set_bkg_tiles(0,0,20,18,banking_screen_map);
 
 
     // Wait for A button press
@@ -54,8 +49,8 @@ void main(void)
     // Our tutorial text is in the same bank as the "banking" text
     // We previously set the bank to 1, if the 'ShowGBDKSplashScreen' properly restores the active bank
     // then this will work fine.
-    set_bkg_data(0,tutorial_TILE_COUNT,tutorial_tiles);
-    set_bkg_tiles(0,0,20,18,tutorial_map);
+    set_bkg_data(0,tutorial_screen_TILE_COUNT,tutorial_screen_tiles);
+    set_bkg_tiles(0,0,20,18,tutorial_screen_map);
 
     // Wait for A button press
     WaitForAButtonPress();
@@ -65,12 +60,10 @@ void main(void)
     ShowYourGameHere();
 
     // Loop forever
-    while(bigData1[1] && bigData2[1]) {
-
+    while(TRUE) {
 
 		// Game main loop processing goes here
         SCX_REG= SCX_REG+1;
-
 
 		// Done processing, yield CPU and wait for start of next frame
         vsync();

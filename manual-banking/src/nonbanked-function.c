@@ -1,7 +1,7 @@
 #include <gb/gb.h>
 #include <stdint.h>
-#include "tutorial.h"
-#include "banking.h"
+#include "tutorial-screen.h"
+#include "banking-screen.h"
 #include "gbdk-splash-screen.h"
 #include "big-data-file1.h"
 #include "big-data-file2.h"
