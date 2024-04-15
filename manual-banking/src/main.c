@@ -1,11 +1,11 @@
 #include <gb/gb.h>
 #include <stdint.h>
 
-// Extra Functions
+// Extra Function
 #include "nonbanked-function.h"
-#include "banked-function.h"
 
 // Our assets
+#include "your-game-here.h"
 #include "tutorial-screen.h"
 #include "banking-screen.h"
 #include "gbdk-splash-screen.h"

@@ -25,4 +25,6 @@ extern const uint8_t your_game_here_tiles[1600];
 extern const unsigned char your_game_here_map[360];
 #define your_game_here_map_attributes your_game_here_map
 
+void ShowYourGameHere() BANKED;
+
 #endif

@@ -7,6 +7,8 @@
         "banking.h": "c",
         "your-game-here.h": "c",
         "show-splash-screen1.h": "c",
-        "show-splash-screen2.h": "c"
+        "show-splash-screen2.h": "c",
+        "nonbanked-function.h": "c",
+        "banking-screen.h": "c"
     }
 }

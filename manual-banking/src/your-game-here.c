@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <gbdk/platform.h>
 #include <gbdk/metasprites.h>
+#include "your-game-here.h"
 
 BANKREF(your_game_here)
 
@@ -435,3 +436,18 @@ const unsigned char your_game_here_map[360] = {
 	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 };
+
+
+
+void ShowYourGameHere() BANKED{
+
+    // We want to show our splash screen
+	// This function lies in bank 2
+	// GBDK will automatically activate bank 2 when this function is called
+	// This gives us free access to bank 2 data, without manually having to bank switch
+    set_bkg_data(0,your_game_here_TILE_COUNT,your_game_here_tiles);
+    set_bkg_tiles(0,0,20,18,your_game_here_map);
+
+	SWITCH_ROM(3);
+
+}

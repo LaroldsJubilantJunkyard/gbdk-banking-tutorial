@@ -1,12 +1,20 @@
+#pragma bank 1
+
 #include <gb/gb.h>
 #include <stdint.h>
 #include "tutorial-screen.h"
 #include "banking-screen.h"
 #include "gbdk-splash-screen.h"
-#include "big-data-file1.h"
-#include "big-data-file2.h"
+
+void RandomFunctionInBank1() BANKED{
+
+    // This function is in bank 1 
+}
 
 void ShowGBDKSplashScreeen1() NONBANKED{
+
+    // This function is non banked (a.k.a. in bank 0)
+    // because it's nonbanked, we can switch the active bank in it
 
     uint8_t _previous_bank = CURRENT_BANK;
 
